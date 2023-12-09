@@ -24,7 +24,7 @@ Clock::Clock(Controllers::DateTime& dateTimeController,
              Controllers::Settings& settingsController,
              Controllers::HeartRateController& heartRateController,
              Controllers::MotionController& motionController,
-             Controllers::WeatherService& weatherService,
+             Controllers::SimpleWeatherService& weatherService,
              Controllers::FS& filesystem)
   : dateTimeController {dateTimeController},
     batteryController {batteryController},

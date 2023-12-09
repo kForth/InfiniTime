@@ -8,7 +8,7 @@
 #include "displayapp/screens/BatteryIcon.h"
 #include "displayapp/Colors.h"
 #include "components/datetime/DateTimeController.h"
-#include "components/ble/weather/WeatherService.h"
+#include "components/ble/SimpleWeatherService.h"
 #include "components/ble/BleController.h"
 #include "utility/DirtyValue.h"
 
@@ -32,7 +32,7 @@ namespace Pinetime {
                                Controllers::NotificationManager& notificationManager,
                                Controllers::Settings& settingsController,
                                Controllers::MotionController& motionController,
-                               Controllers::WeatherService& weather);
+                               Controllers::SimpleWeatherService& weather);
         ~WatchFacePineTimeStyle() override;
 
         bool OnTouchEvent(TouchEvents event) override;
@@ -60,9 +60,7 @@ namespace Pinetime {
         Utility::DirtyValue<std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>> currentDateTime {};
         Utility::DirtyValue<uint32_t> stepCount {};
         Utility::DirtyValue<bool> notificationState {};
-        Utility::DirtyValue<int16_t> nowTemp {};
-        int16_t clouds = 0;
-        int16_t precip = 0;
+        Utility::DirtyValue<std::optional<Pinetime::Controllers::SimpleWeatherService::CurrentWeather>> currentWeather {};
 
         static Pinetime::Controllers::Settings::Colors GetNext(Controllers::Settings::Colors color);
         static Pinetime::Controllers::Settings::Colors GetPrevious(Controllers::Settings::Colors color);
@@ -113,7 +111,7 @@ namespace Pinetime {
         Controllers::NotificationManager& notificationManager;
         Controllers::Settings& settingsController;
         Controllers::MotionController& motionController;
-        Controllers::WeatherService& weatherService;
+        Controllers::SimpleWeatherService& weatherService;
 
         void SetBatteryIcon();
         void CloseMenu();
