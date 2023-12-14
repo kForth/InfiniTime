@@ -4,6 +4,7 @@
 #include "components/brightness/BrightnessController.h"
 #include "components/fs/FS.h"
 #include "displayapp/WatchFaces.h"
+#include "displayapp/Apps.h"
 
 namespace Pinetime {
   namespace Controllers {
@@ -68,6 +69,17 @@ namespace Pinetime {
 
       Pinetime::Applications::WatchFace GetWatchFace() const {
         return settings.watchFace;
+      };
+
+      void SetShortcutApp(Pinetime::Applications::Apps app) {
+        if (app != settings.shortcutApp) {
+          settingsChanged = true;
+        }
+        settings.shortcutApp = app;
+      };
+
+      Pinetime::Applications::Apps GetShortcutApp() const {
+        return settings.shortcutApp;
       };
 
       void SetChimeOption(ChimesOption chimeOption) {
@@ -285,6 +297,7 @@ namespace Pinetime {
         Notification notificationStatus = Notification::On;
 
         Pinetime::Applications::WatchFace watchFace = Pinetime::Applications::WatchFace::Digital;
+        Pinetime::Applications::Apps shortcutApp = Pinetime::Applications::Apps::Music;
         ChimesOption chimesOption = ChimesOption::None;
 
         PineTimeStyle PTS;
