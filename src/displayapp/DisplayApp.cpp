@@ -325,6 +325,7 @@ void DisplayApp::Refresh() {
                 if (settingsController.GetShortcutApp() != Apps::None) {
                   LoadNewScreen(settingsController.GetShortcutApp(), DisplayApp::FullRefreshDirections::LeftAnim);
                 }
+                break;
               case TouchEvents::DoubleTap:
                 PushMessageToSystemTask(System::Messages::GoToSleep);
                 break;
