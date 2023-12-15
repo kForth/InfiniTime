@@ -60,13 +60,15 @@ bool InfiniPaint::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
   return true;
 }
 
-bool InfiniPaint::OnTouchEvent(uint16_t x, uint16_t y) {
-  lv_area_t area;
-  area.x1 = x - (width / 2);
-  area.y1 = y - (height / 2);
-  area.x2 = x + (width / 2) - 1;
-  area.y2 = y + (height / 2) - 1;
-  lvgl.SetFullRefresh(Components::LittleVgl::FullRefreshDirections::None);
-  lvgl.FlushDisplay(&area, b);
+bool InfiniPaint::OnTouchEvent(uint16_t x, uint16_t y, bool contact) {
+  if (contact) {
+    lv_area_t area;
+    area.x1 = x - (width / 2);
+    area.y1 = y - (height / 2);
+    area.x2 = x + (width / 2) - 1;
+    area.y2 = y + (height / 2) - 1;
+    lvgl.SetFullRefresh(Components::LittleVgl::FullRefreshDirections::None);
+    lvgl.FlushDisplay(&area, b);
+  }
   return true;
 }

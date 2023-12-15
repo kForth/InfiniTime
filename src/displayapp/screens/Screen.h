@@ -36,7 +36,7 @@ namespace Pinetime {
           return false;
         }
 
-        virtual bool OnTouchEvent(uint16_t /*x*/, uint16_t /*y*/) {
+        virtual bool OnTouchEvent(uint16_t /*x*/, uint16_t /*y*/, bool /*contact*/) {
           return false;
         }
 

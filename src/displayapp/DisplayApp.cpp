@@ -386,9 +386,7 @@ void DisplayApp::Refresh() {
     }
   }
 
-  if (touchHandler.IsTouching()) {
-    currentScreen->OnTouchEvent(touchHandler.GetX(), touchHandler.GetY());
-  }
+  currentScreen->OnTouchEvent(touchHandler.GetX(), touchHandler.GetY(), touchHandler.IsTouching());
 
   if (nextApp != Apps::None) {
     LoadNewScreen(nextApp, nextDirection);

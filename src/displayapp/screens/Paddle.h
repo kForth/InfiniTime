@@ -23,7 +23,7 @@ namespace Pinetime {
         void Refresh() override;
 
         bool OnTouchEvent(TouchEvents event) override;
-        bool OnTouchEvent(uint16_t x, uint16_t y) override;
+        bool OnTouchEvent(uint16_t x, uint16_t y, bool contact) override;
 
       private:
         Pinetime::Components::LittleVgl& lvgl;
