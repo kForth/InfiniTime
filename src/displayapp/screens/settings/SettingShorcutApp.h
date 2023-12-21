@@ -9,6 +9,8 @@
 #include "displayapp/screens/Screen.h"
 #include "displayapp/screens/Symbols.h"
 #include "displayapp/screens/CheckboxList.h"
+#include "displayapp/Apps.h"
+#include "displayapp/UserApps.h"
 
 namespace Pinetime {
 
@@ -24,6 +26,7 @@ namespace Pinetime {
 
       private:
         DisplayApp* app;
+        auto CreateAppList() const;
         auto CreateScreenList() const;
         std::unique_ptr<Screen> CreateScreen(unsigned int screenNum) const;
 
@@ -33,59 +36,12 @@ namespace Pinetime {
         static constexpr const char* symbol = Symbols::stepForward;
 
         static constexpr int itemsPerScreen = 4;
-
-        // Increment this when more space is needed
-        static constexpr int nScreens = 3;
         
-        static constexpr int nItems = itemsPerScreen * itemsPerScreen;
+        static constexpr int nItems = ((int)(Pinetime::Applications::UserAppTypes::Count / itemsPerScreen) + 1) * itemsPerScreen;
 
-        // Order of apps must match page order below
-        std::array<Pinetime::Applications::Apps, nItems> apps {
-            Apps::None,
-            Apps::StopWatch,
-            Apps::Alarm,
-            Apps::Timer,
+        static constexpr int nScreens = nItems / itemsPerScreen;
 
-            Apps::Steps,
-            Apps::HeartRate,
-            Apps::Music,
-            Apps::Paint,
-
-            Apps::Paddle,
-            Apps::Twos,
-            Apps::Metronome,
-            Apps::Navigation
-
-            // Apps::Weather,
-            // Apps::Motion,
-            // Apps::QuickSettings,
-            // Apps::None
-        };
-
-        // Order of apps must match list above
-        std::array<Screens::CheckboxList::Item, nItems> appList {
-          {
-            {"None", true},
-            {"StopWatch", true},
-            {"Alarm", true},
-            {"Timer", true},
-
-            {"Steps", true},
-            {"HeartRate", true},
-            {"Music", true},
-            {"Paint", true},
-
-            {"Paddle", true},
-            {"Twos", true},
-            {"Metronome", true},
-            {"Navigation", true}
-
-            // {"Weather", true},
-            // {"Motion", true},
-            // {"QuickSettings", true},
-            // {"", false}
-            }
-        };
+        std::array<CheckboxList::Item, nItems> appList;
         ScreenList<nScreens> screens;
       };
     }
