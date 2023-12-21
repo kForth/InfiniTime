@@ -50,6 +50,7 @@ namespace Pinetime::Applications {
   struct AppTraits<Apps::Timer> {
     static constexpr Apps app = Apps::Timer;
     static constexpr const char* icon = Screens::Symbols::hourGlass;
+      static constexpr const char* name = "Timer";
 
     static Screens::Screen* Create(AppControllers& controllers) {
       return new Screens::Timer(controllers.timer);

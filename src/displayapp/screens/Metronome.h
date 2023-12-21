@@ -42,6 +42,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Metronome> {
       static constexpr Apps app = Apps::Metronome;
       static constexpr const char* icon = Screens::Symbols::drum;
+      static constexpr const char* name = "Metronome";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Metronome(controllers.motorController, *controllers.systemTask);

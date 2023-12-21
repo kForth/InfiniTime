@@ -2,17 +2,21 @@
 #include "displayapp/apps/Apps.h"
 #include "Controllers.h"
 
-#include "displayapp/screens/Alarm.h"
-#include "displayapp/screens/Timer.h"
-#include "displayapp/screens/Twos.h"
 #include "displayapp/screens/Tile.h"
 #include "displayapp/screens/ApplicationList.h"
-#include "displayapp/screens/WatchFaceDigital.h"
-#include "displayapp/screens/WatchFaceAnalog.h"
-#include "displayapp/screens/WatchFaceCasioStyleG7710.h"
-#include "displayapp/screens/WatchFaceInfineat.h"
-#include "displayapp/screens/WatchFacePineTimeStyle.h"
-#include "displayapp/screens/WatchFaceTerminal.h"
+#include "displayapp/screens/Navigation.h"
+#include "displayapp/screens/StopWatch.h"
+#include "displayapp/screens/Alarm.h"
+#include "displayapp/screens/Timer.h"
+#include "displayapp/screens/Steps.h"
+#include "displayapp/screens/HeartRate.h"
+#include "displayapp/screens/Music.h"
+#include "displayapp/screens/InfiniPaint.h"
+#include "displayapp/screens/Paddle.h"
+#include "displayapp/screens/Twos.h"
+#include "displayapp/screens/Metronome.h"
+// #include "displayapp/screens/Weather.h"
+// #include "displayapp/screens/Motion.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -23,6 +27,7 @@ namespace Pinetime {
     struct AppDescription {
       Apps app;
       const char* icon;
+      const char* name;
       Screens::Screen* (*create)(AppControllers& controllers);
     };
 
@@ -35,7 +40,7 @@ namespace Pinetime {
 
     template <Apps t>
     consteval AppDescription CreateAppDescription() {
-      return {AppTraits<t>::app, AppTraits<t>::icon, &AppTraits<t>::Create};
+      return {AppTraits<t>::app, AppTraits<t>::icon, AppTraits<t>::name, &AppTraits<t>::Create};
     }
 
     template <WatchFace t>

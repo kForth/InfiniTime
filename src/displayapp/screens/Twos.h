@@ -41,6 +41,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Twos> {
       static constexpr Apps app = Apps::Twos;
       static constexpr const char* icon = "2";
+      static constexpr const char* name = "Twos";
 
       static Screens::Screen* Create(AppControllers& /*controllers*/) {
         return new Screens::Twos();

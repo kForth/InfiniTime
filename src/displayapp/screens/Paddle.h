@@ -53,6 +53,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Paddle> {
       static constexpr Apps app = Apps::Paddle;
       static constexpr const char* icon = Screens::Symbols::paddle;
+      static constexpr const char* name = "Paddle";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Paddle(controllers.lvgl);

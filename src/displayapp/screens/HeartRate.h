@@ -43,6 +43,7 @@ namespace Pinetime {
     struct AppTraits<Apps::HeartRate> {
       static constexpr Apps app = Apps::HeartRate;
       static constexpr const char* icon = Screens::Symbols::heartBeat;
+      static constexpr const char* name = "HeartRate";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::HeartRate(controllers.heartRateController, *controllers.systemTask);

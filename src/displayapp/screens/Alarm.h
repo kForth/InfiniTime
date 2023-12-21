@@ -70,6 +70,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Alarm> {
       static constexpr Apps app = Apps::Alarm;
       static constexpr const char* icon = Screens::Symbols::clock;
+      static constexpr const char* name = "Alarm";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Alarm(controllers.alarmController,

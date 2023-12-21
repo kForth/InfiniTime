@@ -90,6 +90,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Music> {
       static constexpr Apps app = Apps::Music;
       static constexpr const char* icon = Screens::Symbols::music;
+      static constexpr const char* name = "Music";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Music(*controllers.musicService);
