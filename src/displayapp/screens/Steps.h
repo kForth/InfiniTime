@@ -47,6 +47,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Steps> {
       static constexpr Apps app = Apps::Steps;
       static constexpr const char* icon = Screens::Symbols::shoe;
+      static constexpr const char* name = "Steps";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Steps(controllers.motionController, controllers.settingsController);

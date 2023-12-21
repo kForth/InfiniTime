@@ -63,6 +63,7 @@ namespace Pinetime {
     struct AppTraits<Apps::Navigation> {
       static constexpr Apps app = Apps::Navigation;
       static constexpr const char* icon = Screens::Symbols::map;
+      static constexpr const char* name = "Navigation";
 
       static Screens::Screen* Create(AppControllers& controllers) {
         return new Screens::Navigation(*controllers.navigationService);
