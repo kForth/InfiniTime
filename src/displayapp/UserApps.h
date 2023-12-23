@@ -4,7 +4,6 @@
 
 #include "displayapp/screens/Tile.h"
 #include "displayapp/screens/ApplicationList.h"
-#include "displayapp/screens/Clock.h"
 #include "displayapp/screens/StopWatch.h"
 #include "displayapp/screens/Alarm.h"
 #include "displayapp/screens/Timer.h"
