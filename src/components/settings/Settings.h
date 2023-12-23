@@ -296,7 +296,7 @@ namespace Pinetime {
         Notification notificationStatus = Notification::On;
 
         Pinetime::Applications::WatchFace watchFace = Pinetime::Applications::WatchFace::Digital;
-        Pinetime::Applications::Apps shortcutApp = Pinetime::Applications::Apps::Music;
+        Pinetime::Applications::Apps shortcutApp = Pinetime::Applications::Apps::None;
         ChimesOption chimesOption = ChimesOption::None;
 
         PineTimeStyle PTS;
