@@ -37,8 +37,8 @@ namespace Pinetime {
           {Symbols::home, "Watch face", Apps::SettingWatchFace},
           {Symbols::stepForward, "Shortcut", Apps::SettingShorcutApp},
 
-          {Symbols::shoe, "Steps", Apps::SettingSteps},
           {Symbols::clock, "Time format", Apps::SettingTimeFormat},
+          {Symbols::shoe, "Steps", Apps::SettingSteps},
           {Symbols::clock, "Date&Time", Apps::SettingSetDateTime},
           {Symbols::batteryHalf, "Battery", Apps::BatteryInfo},
 
