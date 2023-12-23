@@ -37,9 +37,9 @@ namespace Pinetime {
 
         static constexpr int itemsPerScreen = 4;
         
-        static constexpr int nItems = ((int)(Pinetime::Applications::UserAppTypes::Count / itemsPerScreen) + 1) * itemsPerScreen;
-
-        static constexpr int nScreens = nItems / itemsPerScreen;
+        static constexpr int nScreens = (int)(Pinetime::Applications::UserAppTypes::Count / itemsPerScreen) + 1;
+        
+        static constexpr int nItems = nScreens * itemsPerScreen;
 
         std::array<CheckboxList::Item, nItems> appList;
         ScreenList<nScreens> screens;
