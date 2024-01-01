@@ -33,6 +33,7 @@ namespace Pinetime {
       SettingWatchFace,
       SettingShorcutApp,
       SettingTimeFormat,
+      SettingWeatherFormat,
       SettingDisplay,
       SettingWakeUp,
       SettingSteps,
@@ -64,27 +65,12 @@ namespace Pinetime {
       static constexpr size_t Count = sizeof...(As);
     };
 
+    using UserAppTypes = TypeList<@USERAPP_TYPES@>;
+
     template <WatchFace... Ws>
     struct WatchFaceTypeList {
       static constexpr size_t Count = sizeof...(Ws);
     };
-
-    using UserAppTypes = TypeList<Apps::StopWatch,
-                                  Apps::Alarm,
-                                  Apps::Timer,
-                                  Apps::Steps,
-                                  Apps::HeartRate,
-                                  Apps::Music,
-                                  Apps::Paint,
-                                  Apps::Paddle,
-                                  Apps::Twos,
-                                  Apps::Metronome,
-                                  Apps::Navigation
-                                  /*
-                                  Apps::Weather,
-                                  Apps::Motion
-                                  */
-                                  >;
 
     using UserWatchFaceTypes = WatchFaceTypeList<WatchFace::Digital,
                                                  WatchFace::Analog,
