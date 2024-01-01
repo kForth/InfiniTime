@@ -9,7 +9,7 @@
 #include "displayapp/screens/Screen.h"
 #include "displayapp/screens/Symbols.h"
 #include "displayapp/screens/CheckboxList.h"
-#include "displayapp/Apps.h"
+#include "displayapp/apps/Apps.h"
 #include "displayapp/UserApps.h"
 
 namespace Pinetime {
