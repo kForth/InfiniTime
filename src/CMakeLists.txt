@@ -404,6 +404,7 @@ list(APPEND SOURCE_FILES
         displayapp/screens/settings/QuickSettings.cpp
         displayapp/screens/settings/Settings.cpp
         displayapp/screens/settings/SettingWatchFace.cpp
+        displayapp/screens/settings/SettingShortcutApp.cpp
         displayapp/screens/settings/SettingTimeFormat.cpp
         displayapp/screens/settings/SettingWeatherFormat.cpp
         displayapp/screens/settings/SettingWakeUp.cpp
