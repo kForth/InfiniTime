@@ -17,10 +17,10 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
 
-      class SettingShorcutApp : public Screen {
+      class SettingShortcutApp : public Screen {
       public:
-        SettingShorcutApp(DisplayApp* app, Pinetime::Controllers::Settings& settingsController);
-        ~SettingShorcutApp() override;
+        SettingShortcutApp(DisplayApp* app, Pinetime::Controllers::Settings& settingsController);
+        ~SettingShortcutApp() override;
 
         bool OnTouchEvent(TouchEvents event) override;
 

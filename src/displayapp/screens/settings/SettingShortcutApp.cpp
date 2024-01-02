@@ -1,4 +1,4 @@
-#include "SettingShorcutApp.h"
+#include "SettingShortcutApp.h"
 #include <lvgl/lvgl.h>
 #include "displayapp/DisplayApp.h"
 #include "displayapp/screens/Screen.h"
@@ -6,10 +6,10 @@
 
 using namespace Pinetime::Applications::Screens;
 
-constexpr const char* SettingShorcutApp::title;
-constexpr const char* SettingShorcutApp::symbol;
+constexpr const char* SettingShortcutApp::title;
+constexpr const char* SettingShortcutApp::symbol;
 
-auto SettingShorcutApp::CreateAppList() const {
+auto SettingShortcutApp::CreateAppList() const {
   std::array<CheckboxList::Item, nItems> items;
   items[0] = {"None", true};
   int i = 1;
@@ -22,7 +22,7 @@ auto SettingShorcutApp::CreateAppList() const {
   return items;
 }
 
-auto SettingShorcutApp::CreateScreenList() const {
+auto SettingShortcutApp::CreateScreenList() const {
   std::array<std::function<std::unique_ptr<Screen>()>, nScreens> screens;
   for (size_t i = 0; i < screens.size(); i++) {
     screens[i] = [this, i]() -> std::unique_ptr<Screen> {
@@ -32,7 +32,7 @@ auto SettingShorcutApp::CreateScreenList() const {
   return screens;
 }
 
-SettingShorcutApp::SettingShorcutApp(Pinetime::Applications::DisplayApp* app,
+SettingShortcutApp::SettingShortcutApp(Pinetime::Applications::DisplayApp* app,
                                    Pinetime::Controllers::Settings& settingsController)
   : app {app},
     settingsController {settingsController},
@@ -40,15 +40,15 @@ SettingShorcutApp::SettingShorcutApp(Pinetime::Applications::DisplayApp* app,
     screens {app, 0, CreateScreenList(), Screens::ScreenListModes::UpDown} {
 }
 
-SettingShorcutApp::~SettingShorcutApp() {
+SettingShortcutApp::~SettingShortcutApp() {
   lv_obj_clean(lv_scr_act());
 }
 
-bool SettingShorcutApp::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
+bool SettingShortcutApp::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
   return screens.OnTouchEvent(event);
 }
 
-std::unique_ptr<Screen> SettingShorcutApp::CreateScreen(unsigned int screenNum) const {
+std::unique_ptr<Screen> SettingShortcutApp::CreateScreen(unsigned int screenNum) const {
   std::array<Screens::CheckboxList::Item, itemsPerScreen> itemsOnThisScreen;
   for (int i = 0; i < itemsPerScreen; i++) {
     itemsOnThisScreen[i] = appList[screenNum * itemsPerScreen + i];
