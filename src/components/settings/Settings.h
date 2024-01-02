@@ -71,6 +71,17 @@ namespace Pinetime {
         return settings.watchFace;
       };
 
+      void SetShortcutApp(Pinetime::Applications::Apps app) {
+        if (app != settings.shortcutApp) {
+          settingsChanged = true;
+        }
+        settings.shortcutApp = app;
+      };
+
+      Pinetime::Applications::Apps GetShortcutApp() const {
+        return settings.shortcutApp;
+      };
+
       void SetChimeOption(ChimesOption chimeOption) {
         if (chimeOption != settings.chimesOption) {
           settingsChanged = true;
@@ -298,6 +309,7 @@ namespace Pinetime {
         Notification notificationStatus = Notification::On;
 
         Pinetime::Applications::WatchFace watchFace = Pinetime::Applications::WatchFace::Digital;
+        Pinetime::Applications::Apps shortcutApp = Pinetime::Applications::Apps::None;
         ChimesOption chimesOption = ChimesOption::None;
 
         PineTimeStyle PTS;

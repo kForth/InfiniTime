@@ -38,6 +38,7 @@
 #include "displayapp/screens/settings/QuickSettings.h"
 #include "displayapp/screens/settings/Settings.h"
 #include "displayapp/screens/settings/SettingWatchFace.h"
+#include "displayapp/screens/settings/SettingShortcutApp.h"
 #include "displayapp/screens/settings/SettingTimeFormat.h"
 #include "displayapp/screens/settings/SettingWeatherFormat.h"
 #include "displayapp/screens/settings/SettingWakeUp.h"
@@ -319,6 +320,11 @@ void DisplayApp::Refresh() {
               case TouchEvents::SwipeRight:
                 LoadNewScreen(Apps::QuickSettings, DisplayApp::FullRefreshDirections::RightAnim);
                 break;
+              case TouchEvents::SwipeLeft:
+                if (settingsController.GetShortcutApp() != Apps::None) {
+                  LoadNewScreen(settingsController.GetShortcutApp(), DisplayApp::FullRefreshDirections::LeftAnim);
+                }
+                break;
               case TouchEvents::DoubleTap:
                 PushMessageToSystemTask(System::Messages::GoToSleep);
                 break;
@@ -496,6 +502,9 @@ void DisplayApp::LoadScreen(Apps app, DisplayApp::FullRefreshDirections directio
       }
       currentScreen = std::make_unique<Screens::SettingWatchFace>(this, std::move(items), settingsController, filesystem);
     } break;
+    case Apps::SettingShortcutApp:
+      currentScreen = std::make_unique<Screens::SettingShortcutApp>(this, settingsController);
+      break;
     case Apps::SettingTimeFormat:
       currentScreen = std::make_unique<Screens::SettingTimeFormat>(settingsController);
       break;
